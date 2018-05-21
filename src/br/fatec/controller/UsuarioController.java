@@ -12,7 +12,13 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.fatec.dao.UsuarioDAO;
 import br.fatec.model.Usuario;
@@ -22,7 +28,7 @@ import br.fatec.util.SessionUtil;
 @SuppressWarnings("serial")
 @ManagedBean(name="usuarioController")
 @SessionScoped
-//@WebServlet("/login")
+@Controller
 public class UsuarioController extends HttpServlet{
 	private String login;
 	private String senha;
@@ -66,7 +72,7 @@ public class UsuarioController extends HttpServlet{
 				
 				System.out.println("from: " + from);
 				Usuario usuario = (Usuario)SessionUtil.getParam("user");
-				System.out.println("Usuário Username: " + usuario.getLogin());
+				System.out.println("Usuï¿½rio Username: " + usuario.getLogin());
 				
 				if (from != null && !from.isEmpty()) {
 				    response.sendRedirect(from);
@@ -74,11 +80,11 @@ public class UsuarioController extends HttpServlet{
 				    response.sendRedirect("/pages/index.xhtml");
 				}
 			} else{
-				FacesUtil.addErrorMessage("Usuário ou senha incorretos!");
+				FacesUtil.addErrorMessage("UsuÃ¡rio ou senha incorretos!");
 			}
 		}
 		else{
-			FacesUtil.addErrorMessage("Usuário ou senha incorretos!");
+			FacesUtil.addErrorMessage("UsuÃ¡rio ou senha incorretos!");
 		}
 	}
 	
@@ -88,6 +94,12 @@ public class UsuarioController extends HttpServlet{
 		SessionUtil.remove("user");
 		//SessionUtil.invalidate();
 		FacesContext.getCurrentInstance().getExternalContext().redirect("/pages/login.xhtml");
+	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.POST)
+	public String logoutJSP(HttpSession session, HttpServletRequest request) throws IOException{
+		session.removeAttribute("user");
+		return "redirect:/pages/login.xhtml";
 	}
 	
 	public void setIsLogged(Boolean isLogged) {
@@ -188,24 +200,24 @@ public class UsuarioController extends HttpServlet{
 		externalContext.redirect("usuario.xhtml");
 	}
 	
-	//validar - método cadastrar atualizado. Nesta versão é verificado se o método cadastrarCampos verificou algum erro, caso sim, este método exibirá os erros na página.
-	//As mesmas alterações deverão ser feitas no método alterar.
+	//validar - mï¿½todo cadastrar atualizado. Nesta versï¿½o ï¿½ verificado se o mï¿½todo cadastrarCampos verificou algum erro, caso sim, este mï¿½todo exibirï¿½ os erros na pï¿½gina.
+	//As mesmas alteraï¿½ï¿½es deverï¿½o ser feitas no mï¿½todo alterar.
 	public void cadastrar() throws IOException, ParseException
 	{
 		String mensagem = validarCampos(this.newUsuario);
 		if (mensagem.length() == 0){
 			if (usuarioDAO.inserir(this.newUsuario)){
 				setUsuario(null);
-				System.out.println("Usuário inserido com sucesso!");
+				System.out.println("Usuï¿½rio inserido com sucesso!");
 				this.newUsuario = new Usuario();
 				
-				//validar - importante adicionar o redirect com o parâmetro origin=nome da entidade
-				//(letras minússculas, sem espaços ou caracteres especiais, por exemplo:
+				//validar - importante adicionar o redirect com o parï¿½metro origin=nome da entidade
+				//(letras minï¿½ssculas, sem espaï¿½os ou caracteres especiais, por exemplo:
 				ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 				externalContext.redirect("cadastroconcluido.xhtml?faces-redirect=true&origin=usuario");
 			}
 			else
-				System.out.println("Erro na inserção!");
+				System.out.println("Erro na inserï¿½ï¿½o!");
 			
 			this.newUsuario = new Usuario();
 		}
@@ -247,14 +259,14 @@ public class UsuarioController extends HttpServlet{
 		if (mensagem.length() == 0){
 			if (usuarioDAO.alterar(this.newUsuario)){
 				setUsuario(null);
-				System.out.println("Usuário alterado com sucesso!");
+				System.out.println("Usuï¿½rio alterado com sucesso!");
 				this.newUsuario = new Usuario();
 				
 				ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 				externalContext.redirect("cadastroconcluido.xhtml?faces-redirect=true&origin=usuario");
 			}
 			else
-				System.out.println("Erro na alteração!");
+				System.out.println("Erro na alteraï¿½ï¿½o!");
 			}
 		else{
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erros!<br/>", mensagem));
@@ -267,14 +279,14 @@ public class UsuarioController extends HttpServlet{
 			setUsuario(null);
 			ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 			externalContext.redirect("usuariolist.xhtml");
-			System.out.println("Usuário excluido com sucesso!");
+			System.out.println("Usuï¿½rio excluido com sucesso!");
 		}
 		else
-			System.out.println("Erro na exclusão!");
+			System.out.println("Erro na exclusï¿½o!");
 	}
 	
-	//validar - método para validação de atributos do objeto associado à view,
-	//este método será chamado pelo método cadastrar e alterar
+	//validar - mï¿½todo para validaï¿½ï¿½o de atributos do objeto associado ï¿½ view,
+	//este mï¿½todo serï¿½ chamado pelo mï¿½todo cadastrar e alterar
 	public String validarCampos(Usuario usuario) throws ParseException{
 		String mensagemErro = "";
 		if (usuario.getLogin().trim().length() == 0)

@@ -41,11 +41,7 @@ public class CadastroConcluido {
 		switch (redirectValue){
 			
 		case "usuario":
-			setPageMessage("Usu·rio cadastrado com sucesso");
-			setTemplate(templateUrl + "templateusuario.xhtml");
-			break;
-		case "comentario":
-			setPageMessage("Coment·rio inserido com sucesso");
+			setPageMessage("Usu√°rio cadastrado com sucesso!");
 			setTemplate(templateUrl + "templateusuario.xhtml");
 			break;
 		default:

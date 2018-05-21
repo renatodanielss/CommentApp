@@ -30,22 +30,15 @@
 	<div class="menu" id="menu" style="height: auto;">
 		<table align="center" width="1004px" border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
 			<tr style="background-color: #20507b;">
-				<td class="topo"></td>
+				<td class="topo"></td></tr>
 				<tr>
 				<td align="center" style="background-image: url('../resources/images/menu.png'); height: 45px;">
-					<a id="dynaButtonHome" href="/pages/index.xhtml" class="menuLink" />Home</a>
-					<a id="dynaButtonComentario" href="/usuario/comentarios" class="menuLink" style="width:150px;">Comentários</a>
-					<a id="dynaButtonUsuario" href="/usuario/usuariolist.xhtml" class="menuLink">Usuário</a>
+					<%Usuario usuario = (Usuario)session.getAttribute("user");%>
+					<form action="/logout" method="post" style="float: right; padding-right: 10px;">
+						&nbsp;&nbsp;<input type="submit" id="logoutButton" class="logout" value="Logout"></input>
+					</form>
+					<label style="float: right; color: #ffffff;">Logado como: <%= usuario.getLogin() %>  |</label>
 				</td>
-				</tr>
-				<tr>
-				<%Usuario usuario = (Usuario)session.getAttribute("user");%>
-					<td align="right">
-						Logado como: <%= usuario.getLogin() %>
-						<form action="/logout" method="post">
-							<input type="submit" id="logoutButton" style="font-size: 16px; font-family: Arial;" value="Logout"></input>
-						</form>
-					</td>
 				</tr>
 		</table>
 	</div>

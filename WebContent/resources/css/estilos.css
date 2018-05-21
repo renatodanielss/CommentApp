@@ -95,3 +95,33 @@
 .icons{
 	width: 30px;
 }
+
+.logout{
+	vertical-align:bottom;
+	overflow:visible;
+	font-size:1em;
+	display:inline;
+	margin:0;
+	padding:0;
+	border:0;
+	border-bottom:1px solid yellow;
+	color: yellow;
+	background-color: transparent;
+	cursor:pointer;
+}
+
+.cadastrar{
+	vertical-align:bottom;
+	overflow:visible;
+	font-size:1em;
+	display:inline;
+	margin:0;
+	padding:0;
+	border:0;
+	background-color: transparent;
+	cursor:pointer;
+	border-bottom:1px solid blue;
+	color: blue;
+	float: left;
+	clear: both;
+}

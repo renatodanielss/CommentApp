@@ -10,7 +10,7 @@ xmlns:p="http://primefaces.org/ui">
 <link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/resources/images/favicon.png"/>
 <title>Login</title>
 </h:head>
-<ui:decorate template="/template/templateusuario.xhtml">
+<ui:decorate template="/template/templatesimples.xhtml">
 <ui:define name="page">
 <h:form enctype="multipart/form-data">
 <div align="center">
@@ -28,7 +28,11 @@ xmlns:p="http://primefaces.org/ui">
         <h:inputSecret value="#{usuarioController.senha}" />
 
         <h:panelGroup />
-        <h:commandButton id="btnLogin" value="Login" action="#{usuarioController.entrar}" />
+        <h:commandButton id="btnLogin" value="Login" action="#{usuarioController.entrar}" style="margin-right: 20px;" />
+        <br /><br />
+        <div>
+        <h:commandButton styleClass="cadastrar" id="btnCadastrar" value="Cadastrar" action="#{usuarioController.goToUsuario}" />
+        </div>
     </h:panelGrid>
 </h:form>
 <script>

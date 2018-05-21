@@ -8,9 +8,9 @@ xmlns:p="http://primefaces.org/ui">
 <h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/resources/images/favicon.png"/>
-<title>Usuário Professor</title>
+<title>Usuário</title>
 </h:head>
-<ui:decorate template="/template/templateusuario.xhtml">
+<ui:decorate template="/template/templatesimples.xhtml">
 <ui:define name="page">
 <h:form enctype="multipart/form-data">
 <div align="center">
@@ -45,8 +45,9 @@ xmlns:p="http://primefaces.org/ui">
 <br />
 <h:panelGroup id="pnlGrd">
 <table border="0" style="width:900px" align="center">
-	<tr><td align="right" style="width:900px" >
+	<tr><td align="left" style="width:900px" >
 		<p:commandButton id="btnSalvar" value="Salvar" action="#{usuarioController.cadastrar}" rendered="#{usuarioController.showNewButton}" ajax="false" />&nbsp;
+		<a href="/" style="padding-left: 30px;">Voltar à página inicial</a>&nbsp;
 		<p:commandButton id="btnAlterar" value="Alterar" action="#{usuarioController.alterar}"  rendered="#{!usuarioController.showNewButton}" ajax="false" />&nbsp;
 	</td></tr>
 	<p:dialog header="Modal Dialog" widgetVar="dialog" modal="true" height="100">
