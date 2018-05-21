@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/resources/images/favicon.png"/>
+<title>Usuário Professor</title>
+</h:head>
+<ui:decorate template="/template/templateusuario.xhtml">
+<ui:define name="page">
+<h:form enctype="multipart/form-data">
+<div align="center">
+<table style="width:906px" border="0" align="center" cellpadding="0" cellspacing="0">
+<!-- //validar - componente message é necessário para que a mensagem de erro seja exibida -->
+<tr><td align="left"><p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" escape="false" /></td></tr>
+<tr><td><center><h2>Cadastro de Usuário</h2></center></td></tr>
+</table>
+<table  style="width:906px" border = "0">
+<tr>
+	<td align="left" colspan="3"><h3>Informações</h3></td>
+</tr>
+<tr>
+	<td align="left"><h:outputText value="Login:"></h:outputText></td>
+</tr>
+<tr>
+	<td align="left" ><p:inputText id="txtLogin" style="width:237px" value="#{usuarioController.newUsuario.login}" binding="#{txtLogin}" /></td>
+</tr>
+<tr>
+	<br />
+</tr>
+<tr>
+	<td align="left"><h:outputText value="Senha:"></h:outputText></td>
+</tr>
+<tr>
+	<td align="left" ><p:inputText type="password" id="txtSenha" style="width:237px" value="#{usuarioController.newUsuario.senha}" /></td>
+</tr>
+<tr>
+	<br />
+</tr>
+</table>
+<br />
+<h:panelGroup id="pnlGrd">
+<table border="0" style="width:900px" align="center">
+	<tr><td align="right" style="width:900px" >
+		<p:commandButton id="btnSalvar" value="Salvar" action="#{usuarioController.cadastrar}" rendered="#{usuarioController.showNewButton}" ajax="false" />&nbsp;
+		<p:commandButton id="btnAlterar" value="Alterar" action="#{usuarioController.alterar}"  rendered="#{!usuarioController.showNewButton}" ajax="false" />&nbsp;
+	</td></tr>
+	<p:dialog header="Modal Dialog" widgetVar="dialog" modal="true" height="100">
+    	<h:outputText value="" />
+	</p:dialog>
+</table>
+</h:panelGroup>
+</div>
+</h:form>
+<script>
+	var txtUsername = document.getElementById('#{txtLogin.clientId}');
+	txtUsername.focus();
+</script>
+</ui:define>
+</ui:decorate>
+</html>

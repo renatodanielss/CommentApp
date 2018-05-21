@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/resources/images/favicon.png"/>
+<title>Login</title>
+</h:head>
+<ui:decorate template="/template/templateusuario.xhtml">
+<ui:define name="page">
+<h:form enctype="multipart/form-data">
+<div align="center">
+<table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr><td><center><h2>Área do Usuário</h2></center></td></tr>
+<tr><td><p:messages id="messages" autoUpdate="true" closable="true" /></td></tr>
+</table>
+
+<h:form id="formLogin" action="login" method="post" onkeypress="if (event.keyCode == 13) { document.getElementById('formLogin:btnLogin').click(); return false; }">
+    <h:panelGrid columns="2">
+        <h:outputText value="Login" />
+        <h:inputText id="txtlogin" value="#{usuarioController.login}" binding="#{txtlogin}" />
+
+        <h:outputText value="Senha" />
+        <h:inputSecret value="#{usuarioController.senha}" />
+
+        <h:panelGroup />
+        <h:commandButton id="btnLogin" value="Login" action="#{usuarioController.entrar}" />
+    </h:panelGrid>
+</h:form>
+<script>
+	var txtUsername = document.getElementById('#{txtlogin.clientId}');
+	txtUsername.focus();
+</script>
+</div>
+</h:form>
+</ui:define>
+</ui:decorate>
+</html>

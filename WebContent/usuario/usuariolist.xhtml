@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/resources/images/favicon.png"/>
+<title>Usuário</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</h:head>
+<ui:decorate template="/template/templateusuario.xhtml">
+<ui:define name="page">
+<h:form id="form">
+<table align="center" width="900">
+<tr>
+	<td>
+		<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" escape="false" />
+	</td>
+</tr>
+<tr>
+	<td align="right">
+		<p:inputText id="txtPesquisa" value="#{usuarioController.pesquisa}" style="width: 737px; display: inline-block; vertical-align: middle;"/>&nbsp;
+		<p:watermark for="txtPesquisa" value="Digite sua pesquisa aqui" />
+		<p:focus for="txtPesquisa" />
+		<p:commandButton id="cmdPesquisa" value="Pesquisar" action="#{usuarioController.pesquisar}" update="usuarioTable" ajax="true" style="display: inline-block; vertical-align: middle;" />
+	</td>
+</tr>
+<tr><td>
+<p:dataTable  var="usuario" value="#{usuarioController.usuarios}" id="usuarioTable" rowKey="#{usuario.login}"
+		 selectionMode="single" selection="#{usuarioController.currentUsuario}" style="text-align:center" paginator="true" rows="10"
+		 paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}" 
+		 rowsPerPageTemplate="5,10,15" lazy="true">  
+ 
+	        <f:facet name="header">  
+	           Usuário
+	            <br/>
+	        </f:facet>
+	        
+	        <p:column width="900" headerText="Usuário" id="usuario" filterMatchMode="contains">  
+	            #{usuario.login}  
+	        </p:column> 
+	        
+</p:dataTable>
+</td></tr>
+</table>
+<table align="center">
+	<tr><td>
+		<p:commandButton id="btnIncluir" value="Incluir" action="#{usuarioController.goToUsuario}" ajax="false"/>&nbsp;
+		<p:commandButton id="btnAlterar" value="Alterar" action="#{usuarioController.iniciaAlterar}" ajax="false"/>&nbsp;
+		<p:commandButton id="btnExcluir" value="Excluir" action="#{usuarioController.excluir}" ajax="false" />&nbsp;
+	</td></tr>
+</table>
+</h:form>
+
+<div ng-app="">
+  <p>Name: <input type="text" ng-model="name" /></p>
+  <p ng-bind="name"></p>
+</div>
+
+</ui:define>
+</ui:decorate>
+</html>

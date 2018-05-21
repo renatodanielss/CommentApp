@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/resources/images/favicon.png"/>
+<title>Questão</title>
+</h:head>
+<ui:decorate template="/template/templateusuario.xhtml">
+<ui:define name="page">
+<h:form id="form">
+<table align="center" style="width: 900px" border="0">
+<tr>
+	<td>
+		<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" escape="false" />
+	</td>
+</tr>
+<tr>
+	<td align="right">
+		<p:inputText id="txtPesquisa" value="#{comentarioController.pesquisa}" style="width: 735px; display: inline-block; vertical-align: middle;"/>&nbsp;
+		<p:watermark for="txtPesquisa" value="Digite sua pesquisa aqui" />
+		<p:focus for="txtPesquisa" />
+		<p:commandButton id="cmdPesquisa" value="Pesquisar" action="#{comentarioController.pesquisar}" update="comentarioTable" ajax="true" style="display: inline-block; vertical-align: middle;" />
+	</td>
+</tr>
+<tr><td>
+<p:dataTable var="comentario" value="#{comentarioController.comentarios}" id="comentarioTable" rowKey="#{comentario.id}"
+		 selectionMode="single" selection="#{comentarioController.currentComentario}" style="text-align: center; width: 900px;" paginator="true" rows="10"
+		 paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+		 rowsPerPageTemplate="5,10,15" lazy="false" filterEvent="enter">
+  
+	        <f:facet name="header">
+	            Comentário
+	            <br/>
+	        </f:facet>
+	        <p:inputText></p:inputText>
+	        <p:column width="30" headerText="ID" id="id">
+	            #{comentario.id}
+	        </p:column>
+	        
+	        <p:column width="480" headerText="Comentário" id="texto" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; max-width: 480px;">
+	            #{comentario.comentario}
+	        </p:column>
+
+			<p:column width="120" headerText="Usuário" id="usuario_prova">
+	            #{comentario.usuario.login}
+	        </p:column>
+	        
+</p:dataTable>
+</td></tr>
+</table>
+<table align="center">
+	<tr><td>
+		<p:commandButton id="btnIncluir" value="Incluir" action="#{comentarioController.goToComentario}" ajax="false"/>&nbsp;
+		<p:commandButton id="btnAlterar" value="Alterar" action="#{comentarioController.iniciaAlterar}" ajax="false"/>&nbsp;
+		<p:commandButton id="btnExcluir" value="Excluir" action="#{comentarioController.excluir}" ajax="false" />&nbsp;
+	</td></tr>
+</table>
+</h:form>
+</ui:define>
+</ui:decorate>
+</html>

@@ -1,0 +1,97 @@
+:root{
+	--main-height: auto;
+}
+
+.topo{
+	background-image: url('../images/topo.png');
+	background-repeat: no-repeat;
+	height: 226px;
+	background-position: center;
+}
+
+.menuButtons{
+	width: 119px;
+	background: transparent;
+	color: #FFFFFF;
+	font-family: Microsoft-Yi-Baiti;
+	font-size: 14pt;
+}
+
+.menuLink{
+	width: 115px;
+    background: #4E9CAF;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.menuButtonsItens{
+	background: #700707;
+	font-family: Microsoft-Yi-Baiti;
+	font-size: 14pt;
+}
+
+.menu{
+	height: 500px;
+	width: 900;
+}
+
+.botoesQuestoes{
+	width: 50px;
+	height: 30px;
+	vertical-align: sub;
+}
+
+.cadastroConcluido{
+	font-family: Times-New-Roman;
+}
+
+.realizarProva{
+	font-family: Times-New-Roman;
+}
+
+.comment{
+	background-color: #bdf3ef;
+	height: var(--main-height);
+	width: 565px;
+	display: block;
+  	margin-top: 5px;
+  	margin-bottom: 5px;
+  	text-align: left;
+  	float: left;
+  	margin:0 auto;
+  	min-height: 50px;
+  	padding-left: 10px;
+}
+
+.novoComentario{
+	height: 200px;
+	width: 800px;
+	display: block;
+	resize: none;
+}
+
+.editComentario{
+	height: 160px;
+	width: 630px;
+	display: block;
+	resize: none;
+}
+
+.botaoComentar{
+	height: 50px;
+	width: 100px;
+	display: block;
+}
+
+.commentApp{
+	overflow: auto;
+	width:800px;
+	margin:0 auto;
+}
+.icons{
+	width: 30px;
+}

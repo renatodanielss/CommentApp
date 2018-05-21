@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<link rel="shortcut icon" type="image/x-icon"
+		href="#{request.contextPath}/resources/images/favicon.png" />
+	<title>Comentário</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-resource.js'></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<script>
+		angular.module('commentApp', []).controller('commentController', function($scope, $http) {
+			$http.get('http://localhost:3000/api/comments')
+				.then(function(response) {
+					$scope.comments = response.data;
+				});
+		});
+		
+	</script>
+</h:head>
+<ui:decorate template="/template/templateusuario.xhtml">
+	<ui:define name="page">
+
+		<div ng-app="commentApp" ng-controller="commentController"
+			align="center">
+			
+				<label id="comment" ng-repeat="x in comments.data">{{ x.comentario }}<br /><br /></label>
+				<br />
+		</div>
+		
+		<div align="center">
+		Comentário: <h:inputTextarea type="text" name="comentario" value="#{comentarioController.comentario}" class="novoComentario" /><br />
+	
+		
+		<h:outputLink value="http://localhost:3000/api/comments/create" target="_new">
+			<p:commandButton id="btnComentar" value="Comentar" action="submit" ajax="false" class="botaoComentar" />
+			<f:param name="comentario" value="#{comentarioController.comentario.comentario}" />
+			<f:param name="usuario" value="#{usuarioController.usuario.login}" />
+		</h:outputLink>
+		
+		</div>
+	</ui:define>
+</ui:decorate>
+</html>
