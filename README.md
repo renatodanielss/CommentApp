@@ -88,7 +88,7 @@ Ao concluir o checkout, já poderemos começar a rodar os testes.
 
 <h3>Rodando os testes</h3>
 
-Abra a pasta do nosso serviço do Node Js chamado CommentService, o qual acabemos de fazer checkout, segure ctrl e pressione com o botão direito do mouse sobre qualquer espaço em branco da pasta e selecione a opção “Abrir janela de comando aqui”.
+Abra a pasta do nosso serviço do Node Js chamado CommentService, o qual acabamos de fazer checkout, segure ctrl e pressione com o botão direito do mouse sobre qualquer espaço em branco da pasta e selecione a opção “Abrir janela de comando aqui”.
 
 Execute o seguinte comando:
 
