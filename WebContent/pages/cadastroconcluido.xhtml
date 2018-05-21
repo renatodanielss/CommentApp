@@ -10,10 +10,12 @@ xmlns:p="http://primefaces.org/ui">
 <link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/resources/images/favicon.png"/>
 <title>Cadastro Concluído</title>
 </h:head>
-<ui:decorate template="#{cadastroConcluidoController.template}">
+<ui:decorate template="/template/templatesimples.xhtml">
 <ui:define name="page">
 <h:form enctype="multipart/form-data">
 <div align="center"><font face="Times New Roman" size="6"><p:outputLabel value="#{cadastroConcluidoController.pageMessage}" styleClass="cadastroConcluido" /></font></div>
+<br /><br /><br />
+<div align="center"><a href="/pages/login.xhtml">Voltar à página de login</a></div>&nbsp;
 <br />
 <br />
 <br />
