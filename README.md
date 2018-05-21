@@ -1,20 +1,22 @@
-OnePageEnterprises
+<h1>OnePageEnterprises</h1>
 
 Projeto de comentários com gerenciamento de usuários.
 
-Iniciando
+<h3>Iniciando</h3>
 
 Essas instruções o auxiliarão em como ter uma cópia deste projeto em sua máquina local para fins de teste e execução. A seguir, todas as instruções sobre como fazer o deploy deste projeto.
 
-Pré-requisites
+<h3>Pré-requisites</h3>
 
-•	Eclipse Kepler ou superior
-•	PostgreSQL 9.3 ou superior
-•	Apache Tomcat 8 ou superior
-•	Node JS 8.11.2
+<pre>
+•	Eclipse Kepler ou superior<br>
+•	PostgreSQL 9.3 ou superior<br>
+•	Apache Tomcat 8 ou superior<br>
+•	Node JS 8.11.2<br>
 •	Git 2.17
+</pre>
 
-Instalando
+<h3>Instalando</h3>
 
 Baixe o Eclipse Kepler ou superior no link a seguir:
 
@@ -55,8 +57,10 @@ Insira a senha definida na instalação.
 Expanda a opção Databases, selecione o banco de dados postgres e clique no botão “SQL” para abrirmos o editor de queries do PostgreSQL.
  
 Insira o seguinte comando:
-create database db_onepageenterprises;
-Clique na combo em que está descrita a conexão e selecione a opção “<new connection>”.
+
+<pre>create database db_onepageenterprises;</pre>
+
+Clique na combo em que está descrita a conexão e selecione a opção “\<new connection\>”.
  
 Na opção Database, selecione o nosso recém criado banco de dados db_onepageenterprises como abaixo e clique em ok e depois insira sua senha.
  
@@ -78,17 +82,17 @@ Abra o programa, execute o arquivo git-cmd.exe.
 
 Execute o seguinte comando para fazer checkout do nosso projeto Node JS:
 
-git clone https://github.com/renatodanielss/CommentService.git
+<pre>git clone https://github.com/renatodanielss/CommentService.git</pre>
 
 Ao concluir o checkout, já poderemos começar a rodar os testes.
 
-Rodando os testes
+<h3>Rodando os testes</h3>
 
 Abra a pasta do nosso serviço do Node Js chamado CommentService, o qual acabemos de fazer checkout, segure ctrl e pressione com o botão direito do mouse sobre qualquer espaço em branco da pasta e selecione a opção “Abrir janela de comando aqui”.
 
 Execute o seguinte comando:
 
-npm start
+<pre>npm start</pre>
 
 Com isso, nosso serviço de comentários já está disponível e rodando.
 
@@ -100,6 +104,6 @@ http://localhost:8080
 
 Insira o usuário daniel, senha daniel123 ou cadastre um novo usuário.
 
-Autor
+<h3>Autor</h3>
 
 •	Renato Daniel Santana Santos
