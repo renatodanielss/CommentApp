@@ -6,7 +6,7 @@ Projeto de comentários com gerenciamento de usuários.
 
 Essas instruções o auxiliarão em como ter uma cópia deste projeto em sua máquina local para fins de teste e execução. A seguir, todas as instruções sobre como fazer o deploy deste projeto.
 
-<h3>Pré-requisites</h3>
+<h3>Pré-requisitos</h3>
 
 <pre>
 •	Eclipse Kepler ou superior<br>
