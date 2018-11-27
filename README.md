@@ -102,7 +102,7 @@ Agora, abra um navegador da web qualquer e insira a seguinte url:
 
 http://localhost:8080
 
-Clique no botão "Área de Comentários", insira o usuário daniel, senha daniel123 ou cadastre um novo usuário.
+Clique no botão "Área de Comentários", insira o usuário e senha ou cadastre um novo usuário.
 
 <h3>Autor</h3>
 
