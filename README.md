@@ -23,7 +23,7 @@ Baixe o Eclipse Kepler ou superior no link a seguir:
 https://www.eclipse.org/downloads/
 
 O Eclipse não requer instalação, basta executar o arquivo eclipse.exe.
-Ao abrir o Eclipse, clique com o botão direito do mouse em qualquer espeço em branco na área do Project Explorer e selecione a opção import>import.
+Ao abrir o Eclipse, clique com o botão direito do mouse em qualquer espaço em branco na área do Project Explorer e selecione a opção import>import.
  
 Use a pesquisa para encontrar a opção “Projects from Git”. Selecione a opção, clique em next. Selecione a opção Clone URI e insira a seguinte URI:
 
