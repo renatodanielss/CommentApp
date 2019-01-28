@@ -1,4 +1,4 @@
-<h1>OnePageEnterprises</h1>
+<h1>CommentApp</h1>
 
 Projeto de comentários com gerenciamento de usuários.
 
@@ -27,7 +27,7 @@ Ao abrir o Eclipse, clique com o botão direito do mouse em qualquer espaço em 
  
 Use a pesquisa para encontrar a opção “Projects from Git”. Selecione a opção, clique em next. Selecione a opção Clone URI e insira a seguinte URI:
 
-https://github.com/renatodanielss/OnePageEnterprises.git
+https://github.com/renatodanielss/CommentApp.git
 
 Feito isso, pressione next, next novamente, selecione a pasta a qual quer salvar o projeto, pressione next de novo, aguarde o Eclipse carregar o projeto, pressione next e clique em finish. Com isso, o projeto já está no nosso workspace do Eclipse.
 
@@ -41,7 +41,7 @@ De volta ao Eclipse, clique no menu Window>Preferences. Expanda a opção Server
 
 Clique na aba Server, clique no link de azul “No servers are available. Click this link to create a new server...”.
 
-Selecione a opção do Tomcat 8.0, clique em next, selecione o projeto OnePageEnterprises, clique em add e depois finish. O servidor vai aparecer.
+Selecione a opção do Tomcat 8.0, clique em next, selecione o projeto CommentApp, clique em add e depois finish. O servidor vai aparecer.
 
 Vamos instalar o PostgreSQL. Baixe-o no seguinte link:
 

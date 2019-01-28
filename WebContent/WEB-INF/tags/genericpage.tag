@@ -52,7 +52,7 @@
 				<td align="center">
 					<hr style="width: 1004px" /> <label
 					style="font-family: georgia; font-size: 13px">Copyright &#169;
-						2018 OnePageEnterprises. Todos os direitos reservados.</label> <br />
+						2018 CommentApp. Todos os direitos reservados.</label> <br />
 					<hr style="width: 1004px" />
 				</td>
 			</tr>
